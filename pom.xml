@@ -38,9 +38,11 @@
         </repository>
     </distributionManagement>
 
+
+
     <developers>
         <developer>
-            <name>haojiang</name>
+            <name>hao</name>
             <email>676974774@qq.com</email>
             <roles>
                 <role>developer</role>
@@ -48,6 +50,10 @@
             <timezone>+8</timezone>
         </developer>
     </developers>
+
+    <properties>
+        <file.encoding>UTF-8</file.encoding>
+    </properties>
 
 
     <dependencies>
@@ -109,7 +115,7 @@
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
                 <source>1.8</source>
-                <target>1.6</target>
+                <target>1.8</target>
             </configuration>
         </plugin>
             <plugin>

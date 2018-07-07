@@ -17,15 +17,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-/**
-* @projectName: 2808proxy
-*
-* @description: java client of proxy2808
-*
-* @author: god
-*
-* @create: 2018-07-02
-**/
+
 
 public class Client {
 
@@ -44,13 +36,7 @@ public class Client {
 
     private Client() {}
 
-    /**
-     2808 proxy client class
-     :param username: username
-     :param password: password
-     :param tokenChangeOnLogin: if change the token when re-register,default is False
-     :param enhancedAuth: whether open authentication,default is False
-     **/
+
     public Client(String userName, String password, String token, Boolean enhancedAuth, Boolean tokenChangeOnLogin) {
 
         this.userName = userName;
@@ -124,9 +110,9 @@ public class Client {
     }
 
     /**
-     *  get token
+     *  获取token
      *
-     * @return  token
+     * @return  Result<String> 获取到的Result含有token
      */
 
     private Result<String> getToken() {
@@ -162,7 +148,7 @@ public class Client {
      * @param amount   代理数量
      * @param expireSeconds   过期时间
      *
-     * @return Result<GetProxyResponse>
+     * @return Result  代理列表
      *
      */
     public Result<List<Proxy>> getProxy(Integer amount, Long expireSeconds){
@@ -187,9 +173,10 @@ public class Client {
     }
 
     /**
+     * 释放代理
      *
-     * @param proxy
-     * @return Result<ReleaseProxyResponse>
+     * @param proxy 需要释放的代理
+     * @return Result 释放结果
      *
      */
     public Result<ReleaseProxyResponse> releaseProxy(Proxy proxy) {
@@ -206,10 +193,10 @@ public class Client {
     }
 
     /**
-     * release all proxies
+     * 批量释放代理
      *
-     * @param proxies
-     * @return Result<List<Proxy>> : 其中List<Proxy> 是釋放失敗的代理
+     * @param proxies 需要释放的代理
+     * @return Result 釋放代理结果
      *
      */
     public Result<List<Proxy>> releaseProxies(List<Proxy> proxies) {
@@ -242,9 +229,9 @@ public class Client {
     }
 
     /**
-     *  list proxies
+     *  列出所有获取的代理
      *
-     * @return Result<List<Proxy>>
+     * @return Result 代理列表
      *
      */
     public Result<List<Proxy>> listProxy() {
@@ -261,9 +248,9 @@ public class Client {
     }
 
     /**
-     *  release all proxies
+     *  释放所有获取到的代理
      *
-     *  @return  Result<List<Proxy>>
+     *  @return  Result 释放代理结果， 其中为释放失败的代理
      */
     public Result<List<Proxy>> releaseAll() {
         return releaseProxies(listProxy().getData());
